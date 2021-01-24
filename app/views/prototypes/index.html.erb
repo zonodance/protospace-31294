@@ -1,0 +1,23 @@
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+    <%# ログインしているときは以下を表示する %>
+      <div class="greeting">
+        こんにちは、
+        <%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link %>
+      </div>
+    <% end %>
+    <%# // ログインしているときは上記を表示する %>
+    <div class="card__wrapper">
+      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+    <%= render partial: "prototype",collection: @prototypes %>
+    </div>
+  </div>
+</main>
+
+
+<%# 文字列中で変数を使う %>
+
+
+<%# 指定したインスタンス変数の中にある要素の数だけ、部分テンプレートが繰り返し表示されるrenderメソッドのオプションです。
+<%= render partial: 'hoge', collection: 繰り返し表示する要素が入っているインスタンス %> 
